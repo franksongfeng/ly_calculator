@@ -1,7 +1,10 @@
 %%%-------------------------------------------------------------------
 %%% @author johhy <https://github.com/johhy>
 %%% @copyright (C) 2014, johhy
-%%% @doc
+%%% @doc Main ly_calculator module.
+%%% This module provide arithmetic operations whith expressions as
+%%% string.
+%%% Return value possibly process to change to any type what is needs.  
 %%%
 %%% @end
 %%% Created : 10 Jan 2014 by johhy <https://github.com/johhy>
@@ -23,9 +26,13 @@
 %%--------------------------------------------------------------------
 do(String) ->
     try
-	{ok, Tokens, _} = rule:string(String),
-	Res = gram:parse(Tokens),
-	Res
+	case rule:string(String) of
+	{ok, Tokens, _} ->
+		Res = gram:parse(Tokens),
+		Res;
+	{error, {1,rule,{user,{malformed}}}, _} ->
+		{error, malformed_expression}
+        end
     catch
 	_:Error ->
 	    {error, Error}
