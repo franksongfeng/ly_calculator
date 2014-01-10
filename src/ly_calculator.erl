@@ -1,14 +1,12 @@
 %%%-------------------------------------------------------------------
 %%% @author johhy <https://github.com/johhy>
 %%% @copyright (C) 2014, johhy
-%%% @doc Main ly_calculator module.
-%%% This module calculate expressions input as string and
-%%% returned tuple. 
+%%% @doc
 %%%
 %%% @end
 %%% Created : 10 Jan 2014 by johhy <https://github.com/johhy>
 %%%-------------------------------------------------------------------
--module(calc).
+-module(ly_calculator).
 
 %% API
 -export([do/1]).
@@ -18,7 +16,7 @@
 %%%===================================================================
 
 %%--------------------------------------------------------------------
-%% @doc Run function to calculate expression
+%% @doc Calculator
 %% @spec do(String::string()) -> {ok, Result::float()}
 %%                               | {error, Error::any()}
 %% @end
@@ -32,6 +30,7 @@ do(String) ->
 	_:Error ->
 	    {error, Error}
     end.
+
 %%%===================================================================
 %%% Internal functions
 %%%===================================================================

@@ -1,0 +1,5 @@
+{application, ly_calculator,
+[{description, "My simple ly_calculator module 
+	       base on leex and yacc"},
+ {vsn, "0.1 "}
+]}.
