@@ -30,7 +30,7 @@ do(String) ->
 	{ok, Tokens, _} ->
 		Res = gram:parse(Tokens),
 		Res;
-	{error, {1,rule,{user,{malformed}}}, _} ->
+	{error, {_, _,{_, {malformed}}}, _} ->
 		{error, malformed_expression}
         end
     catch
