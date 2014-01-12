@@ -19,7 +19,7 @@
 %%%===================================================================
 
 %%--------------------------------------------------------------------
-%% @doc Calculator
+%% @doc Function for start calculator.
 %% @spec do(String::string()) -> {ok, Result::float()}
 %%                               | {error, Error::any()}
 %% @end
@@ -28,7 +28,7 @@ do(String) ->
     try
 	case rule:string(String) of
 	{ok, Tokens, _} ->
-		Res = gram:parse(Tokens),
+		Res = gram:parse(lists:append(Tokens, [{'$end'}])),
 		Res;
 	{error, {_, _,{_, {malformed}}}, _} ->
 		{error, malformed_expression}

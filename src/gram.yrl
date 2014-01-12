@@ -7,7 +7,7 @@
 
 Nonterminals element uminus.
 
-Terminals plus minus multi divide number.
+Terminals plus minus multi divide number obrac cbrac.
 
 Rootsymbol element.
 
@@ -21,8 +21,9 @@ element -> element multi element : multi('$1', '$3').
 element -> element divide element : divide('$1', '$3').
 element -> plus element: '$2'.
 element -> uminus : '$1'.
-element -> number : unwrap('$1').
 uminus -> minus element: '$2' * (-1).
+element -> number : unwrap('$1').
+element -> obrac element cbrac : '$2'.
 
 Erlang code.
 

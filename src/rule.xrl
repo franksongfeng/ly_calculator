@@ -13,6 +13,8 @@ Plus = \+
 Minus = \-
 Multi = \*
 Divide = \/
+Obrac = \(
+Cbrac = \)
 
 Rules.
 
@@ -22,6 +24,8 @@ Rules.
 {Minus} : {token, {minus}}.
 {Multi} : {token, {multi}}.
 {Divide} : {token, {divide}}.
+{Obrac} : {token, {obrac}}.
+{Cbrac} : {token, {cbrac}}.
 . : {error, {malformed}}.
 
 Erlang code.
